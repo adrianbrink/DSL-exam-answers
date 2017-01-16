@@ -132,8 +132,13 @@ are developend from a common set of core assets in a prescribed way.
 Xtext is a language framework bench that integrates
 
 26. Describe the process of implementing a DSL using Xtext.
-Draw meta-model -> Generate grammar -> refine grammar -> generate model code -> 
-create a xtext project from existing models -> refine the language
+Create the .ecore file with meta-model
+Create the default generator model for the ecore model
+Generate model code
+Create Xtext project from existing ecore models using the genmodel
+Genreate Xtext code (grammar)
+Run the DSL editing environment
+Iteratively revise the grammar
 
 27. What is variability modelling?
 It is the modelling of the parts that will vary between different products from the same SPL.
@@ -148,4 +153,36 @@ the relations between them.
 ....
 
 30. Have you used automated testing in your project?
-Yes
+Yes, we have written testcases for legal and illegal instances of the model plus we have unit tests
+the generators.
+
+31. What is the difference between a conformance relation and inheritance relation in class models?
+...
+
+32. What is aggregation (composition)?
+It means that one class contains the other class. E.g.: A car class would contain a list of wheels.
+
+33. What is abstract syntax? What is concrete syntax? How do we specify abstract syntax of a
+language? How do we specify concrete syntax?
+Abstract syntax is what the meta-model describes.
+Concrete syntax is what the end-user writes.
+We use ecore and create meta-models that describe our abstract syntax.
+We specify concrete syntax through the grammar of our language.
+
+34. What is Eclipse Modelling Framework? What can it offer to software developers? How did you
+use EMF in your project?
+EMF is an Eclipse-based modelling framework and code generation facility for building tools and
+other applications based in a structured data model.
+It offers the developer tools such as ecore that allow one to specify the abstract syntax
+of a language, generate Java classes from that as well as a grammar file which then can be used
+to refine and extend the language. Furthermore it provides editors for the generated languages.
+We used EMF extensively as our language workbench.
+
+35. What is a left-recursive grammar? Did you have a problem with it in your project? What
+is left-factorization of the grammar?
+A left recursive grammar is one where a non-terminal symbol appears on the left and also as the 
+first item on the right of the grammar. 
+We didn't have a problem with it in our project since we prefixed all non-terminals and
+terminals and hence we had no left recursion. 
+http://www.csd.uwo.ca/~moreno//CS447/Lectures/Syntax.html/node8.html
+Left-factorization no idea, we never mentioned it in the course.
