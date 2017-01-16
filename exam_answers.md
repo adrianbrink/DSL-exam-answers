@@ -55,6 +55,97 @@ Yes for the generators. We could have used better test instances for our simple 
 8. Why are you not using your ecore model in your Xtend program?
 We are using our ecore model in our transformations.
 
-9. What is a meta-model constraint?
+9. What is ecore? What is the relation to MOF? what is its relation with UML?
+Ecore is a meta modelling language which is the basis of the Eclipse Modelling Framework. Ecore itself is an implementation of MOF
+(Meta Object Facility), which is a simple class diagramming language standardized by OMG. MOF is used to define the abstract syntax
+of UML languages.
+
+10. What is a meta-model constraint?
 A meta-model constraint is an extra limitation that cannot be easily expressed within the meta-model itself and hence
 is rather written in another language and then checked against a concrete instance of the meta-model.
+
+11. Can you explain the meta-modelling hierarchy?
+The meta-modelling hierarchy describes the different levels of abstraction. For example in the case of Ecore the M3 level
+is the ecore language whcih allows to describe class diagrams. Instances of that language of class diagram at level 2. 
+Level M1 has concrete models in the mind-map language and M0 contains real world objects. M0 is the least abstract level (or reality)
+and M3 is the most abstract level.
+
+12. What does M3 mean?
+It is a description of the meta-modelling language itself that was designed after having created the language in the
+language itself.
+
+13. What is a DSL?
+A DSL is a language that is very close to its domain so that it allows the users to work very close to their domain,
+instead of through a lot of layers of abstraction. As an example, it is possible to specify trees in assembly code,
+however through our DSL it is much simpler to do it, as the main focal point of the language is trees.
+
+14. What is the difference between using DSLs and using feature models?
+DSLs and feature models are two different techniques that belong to the same continuum of modeling domains. DSLs allow a
+lot of freedom and flexibility, but are harder to maintain than FM. FMs are less expressive than DSLs and their configuration
+options are typically more rigid. Yet, they require no meta-modelling and no concrete syntax.
+
+15. Is the language you propose in your report a DSL? What is the domain it targets?
+Yes, it targets easy specification of tree structures.
+
+16. What is an internal (embedded) DSL? What is an external DSL? What implementation techniques do you know for implementing
+internal/external DSLs?
+An internal DSL is a library within a host language. It is cheap to implement, since all the tools from the host can be reused.
+However it limits the control over syntax, semantics and tooling. Rails Active Record is an example.
+An external DSL is a separate language, that is either parsed or interpreted. It gives you good control over syntax,
+semantics and tooling. However it is costlier to implement. Google protocol buffers are an example.
+
+17. ...
+
+18. What is the key rationale for this work?
+We were frustrated with how hard it is to generate complex tree structures for papers and hence wanted an easy way to specify them.
+Of course, there exist similar approaches in LaTex already, however it was a good learning exercise and I think ours will become
+more useful to us than LaTex.
+
+19. What languages/tools can you indicate that can be used for implementing internal/embedded DSLs? What are the advantages of
+implementing a DSL internally?
+Parser combinator libraries which can be found in most standard libraries for most languages. A solid understanding of your host
+language.
+The advantages are that it is cheaper, faster and a lot of the tooling can be reused from the host language.
+
+20. What is the difference between M2M and M2T transformation?
+M2M transformations are either between the same class or between different types of classes. However, they produce the model
+in another instance. M2T on the other hand produce strings.
+
+21. Can you give examples of successful domain specific languages?
+Ruby on Rails Active Record, Sinatra, OpenCL, Cuda, R, Octave, MatLab
+
+22. What is a general purpose language (GPL)? How does it differ from a DSL?
+A GPL is broadly applicable across domains whereas a DSL is only applicable to a specific domain,
+such as statistics with R.
+
+23. What is a product line architecture?
+A product line architecture specifies the variable and the common parts to build multiple products
+only differ in small parts of their code.
+A software product line is a set of software-intensive systems that share a common, managed set
+of features satisfying the specific needs of a particular market segment or mission and that 
+are developend from a common set of core assets in a prescribed way.
+
+24. What is the most common application scenario for Model Driven Development?
+...
+
+25. What is Xtext? What is its use case?
+Xtext is a language framework bench that integrates
+
+26. Describe the process of implementing a DSL using Xtext.
+Draw meta-model -> Generate grammar -> refine grammar -> generate model code -> 
+create a xtext project from existing models -> refine the language
+
+27. What is variability modelling?
+It is the modelling of the parts that will vary between different products from the same SPL.
+
+28. What tasks are left to complete your project?
+Refine the frontends more.
+Add more frontends.
+Add more testing to the M2T generators.
+
+29. Please draw on the whiteboard classes representing the core concepts in your model and 
+the relations between them.
+....
+
+30. Have you used automated testing in your project?
+Yes
